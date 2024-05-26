@@ -648,6 +648,16 @@ g = r - q;</pre>
         reader.readAsArrayBuffer(files[0])
       }
     }
+
+    document.onpaste = e => {
+      e.preventDefault()
+      const files = e.clipboardData.files;
+      if (files && files.length === 1) {
+        const reader = new FileReader
+        reader.onload = () => demoForImage(reader.result, true)
+        reader.readAsArrayBuffer(files[0])
+      }
+    }
   </script>
 </body>
 
